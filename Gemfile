@@ -46,6 +46,7 @@ end
 
 group :test do
   gem 'rspec-rails', '~> 3.7'
+  gem 'database_cleaner'
   gem 'shoulda-matchers', '~> 3.1'
 end
 
