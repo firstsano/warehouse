@@ -10,10 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_06_06_143118) do
+ActiveRecord::Schema.define(version: 2018_06_06_152856) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "abonents", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "login", null: false
+    t.integer "bill_account", null: false
+    t.integer "profile_account", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["bill_account"], name: "uq_abonents_bill_account", unique: true
+    t.index ["login"], name: "index_abonents_on_login"
+    t.index ["login"], name: "uq_abonents_login", unique: true
+    t.index ["profile_account"], name: "uq_abonents_profile_account", unique: true
+  end
 
   create_table "storages", force: :cascade do |t|
     t.string "name", null: false
