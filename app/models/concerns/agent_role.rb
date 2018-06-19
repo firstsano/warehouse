@@ -4,13 +4,15 @@ module AgentRole
   included do
     has_one :agent, as: :role, dependent: :destroy
 
-    after_save :setup_agent
+    validates :agent, presence: true
+    validates_associated :agent
+
+    before_validation :build_associated_agent, if: :new_record?
   end
 
   private
 
-  def setup_agent
-    agent = Agent.create(name: self.name, role: self)
-    raise ActiveRecord::RecordInvalid.new(self) unless agent.persisted?
+  def build_associated_agent
+    self.build_agent(name: self.name)
   end
 end
