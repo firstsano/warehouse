@@ -10,6 +10,7 @@ gem 'figaro'
 gem 'pg'
 gem 'puma', '~> 3.11'
 gem 'rails', '~> 5.2.0'
+gem 'rails-settings-cached'
 gem 'sass-rails', '~> 5.0'
 gem 'tzinfo-data', platforms: %i[mingw mswin x64_mingw jruby]
 
