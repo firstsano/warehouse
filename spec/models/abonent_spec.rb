@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'shared_examples/agent_interface'
 
 RSpec.describe Abonent, type: :model do
   describe "validations" do
@@ -16,4 +17,6 @@ RSpec.describe Abonent, type: :model do
       end
     end
   end
+
+  it_should_behave_like "agent", :abonent
 end

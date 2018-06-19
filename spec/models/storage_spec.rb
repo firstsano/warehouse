@@ -1,4 +1,5 @@
 require 'rails_helper'
+require 'shared_examples/agent_interface'
 
 RSpec.describe Storage, type: :model do
   describe "validations" do
@@ -6,4 +7,6 @@ RSpec.describe Storage, type: :model do
     it { is_expected.to validate_presence_of(:name) }
     it { is_expected.to validate_uniqueness_of(:name) }
   end
+
+  it_should_behave_like "agent", :storage
 end
