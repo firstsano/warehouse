@@ -19,6 +19,9 @@ Bundler.require(*Rails.groups)
 
 module Warehouse
   class Application < Rails::Application
+    # Include application container
+    require 'application_container'
+
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
 
