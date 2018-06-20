@@ -2,6 +2,8 @@ module AgentRole
   extend ActiveSupport::Concern
 
   included do
+    include Import['agent_interface.common_attributes']
+
     has_one :agent, as: :role, dependent: :destroy
 
     validates :agent, presence: true
@@ -13,6 +15,10 @@ module AgentRole
   private
 
   def build_associated_agent
-    self.build_agent(name: self.name)
+    associated_attributes = common_attributes.map do |attribute|
+      role_attribute = "agent_#{attribute}"
+      [attribute, self.send(role_attribute)]
+    end
+    self.build_agent(Hash[associated_attributes])
   end
 end

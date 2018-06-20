@@ -1,5 +1,4 @@
-require 'rails_helper'
-require 'shared_examples/agent_interface'
+require_relative 'models_helper'
 
 RSpec.describe Abonent, type: :model do
   describe "validations" do
@@ -11,11 +10,7 @@ RSpec.describe Abonent, type: :model do
       end
     end
 
-    context "uniqueness" do
-      %i[login bill_account profile_account].each do |attribute|
-        it { is_expected.to validate_uniqueness_of attribute }
-      end
-    end
+    it_behaves_like "has simple unique validation", %i[login bill_account profile_account], :abonent
   end
 
   it_should_behave_like "agent", :abonent

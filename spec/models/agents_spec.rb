@@ -1,4 +1,4 @@
-require 'rails_helper'
+require_relative 'models_helper'
 
 RSpec.describe Agent, type: :model do
   describe "validations" do
