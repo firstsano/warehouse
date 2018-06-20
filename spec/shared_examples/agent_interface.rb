@@ -11,4 +11,10 @@ RSpec.shared_examples "agent" do |factory|
       end
     end
   end
+
+  describe "interface" do
+    %i[agent_name].each do |message|
+      it { is_expected.to respond_to message }
+    end
+  end
 end
