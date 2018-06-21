@@ -17,8 +17,8 @@ module AgentRole
   def build_associated_agent
     associated_attributes = common_attributes.map do |attribute|
       role_attribute = "agent_#{attribute}"
-      [attribute, self.send(role_attribute)]
+      [attribute, send(role_attribute)]
     end
-    self.build_agent(Hash[associated_attributes])
+    build_agent(Hash[associated_attributes])
   end
 end
