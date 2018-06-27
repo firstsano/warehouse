@@ -9,4 +9,13 @@ RSpec.describe Storage, type: :model do
   end
 
   it_should_behave_like "agent", :storage
+
+  describe "class methods" do
+    subject { described_class }
+
+    describe "::default_storage" do
+      it { is_expected.to respond_to :default_storage }
+      its(:default_storage) { is_expected.to be_an_instance_of Storage }
+    end
+  end
 end
