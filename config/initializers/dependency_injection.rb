@@ -3,6 +3,10 @@ ApplicationContainer.configure do |container|
     Agent
   end
 
+  container.register('settings') do
+    Setting
+  end
+
   container.namespace('agent_interface') do
     register('common_attributes') { Agent::ATTRIBUTES }
   end
